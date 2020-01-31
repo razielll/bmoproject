@@ -20,7 +20,7 @@ export default class App extends Component {
 
 
   fetchResults = async () => {
-    const API_URL = 'http://opentable.herokuapp.com/api/restaurants?city='
+    const API_URL = 'https://opentable.herokuapp.com/api/restaurants?city='
 
     const fetchResult = await fetch(API_URL + this.state.searchQuery)
     const jsonResult = await fetchResult.json();
