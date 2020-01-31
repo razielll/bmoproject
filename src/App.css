@@ -11,6 +11,7 @@
 .search-input {
   flex: 1;
   padding: 0 20px;
+  outline: 0;
 }
 
 .send-btn {
