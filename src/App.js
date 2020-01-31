@@ -25,37 +25,22 @@ export default class App extends Component {
     const fetchResult = await fetch(API_URL + this.state.searchQuery)
     const jsonResult = await fetchResult.json();
     const { total_entries, restaurants } = jsonResult;
+
     this.setState({
       total: total_entries,
       restaurants: restaurants
     }, () => {
       console.log('state updated with results!');
     });
-
-
   };
 
-  // fetchResults = () => {
-  //   const API_URL = 'http://opentable.herokuapp.com/api/restaurants?city='
-
-  //   fetch(API_URL + this.state.searchQuery)
-  //     .then(res => res.json())
-  //     .then((result) => {
-  //       console.log('GOT RESULTs', result)
-  //       this.setState({
-  //         total: result.total_entries,
-  //         page: this.current_page,
-  //         restaurants: result.restaurants
-  //       });
-  //     })
-  // };
 
   priceToDollarSigns = (numStr) => {
     let dollarStr = '';
     for (let i = 0; i < Number(numStr); i++) {
       dollarStr += '$';
     }
-    return <span style={{ color: 'green' }}>{dollarStr}</span>
+    return <span style={{ color: 'green' }}>{dollarStr}</span>;
   };
 
   handleChange = (e) => {
@@ -82,9 +67,8 @@ export default class App extends Component {
                 <div className="rest-item" aria-label="restaurant info" key={restaurant.id}>
                   <span style={{ fontWeight: 'bold' }} aria-label="restaurant name">{restaurant.name},</span>
                   <span aria-label="restaurant address">Address: {restaurant.address},</span>
-                  <span aria-label="restaurant pricing indicator" className="price">
-                    Pricing &nbsp;
-                    {this.priceToDollarSigns(restaurant.price)}
+                  <span aria-label="restaurant pricing indicator - the more dollar signs the more expensive" className="price">
+                    Pricing &nbsp; {this.priceToDollarSigns(restaurant.price)}
                   </span>
                 </div>
               ))}
