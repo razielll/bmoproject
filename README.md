@@ -1,4 +1,4 @@
-# View the site live at netlify ->
+# View the site live at netlify
 https://compassionate-bardeen-155aba.netlify.com/
 
 # Steps to run localy
